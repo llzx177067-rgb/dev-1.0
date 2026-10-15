@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="530" viewBox="0 0 1100 530" role="img" aria-labelledby="title desc">
+<title id="title">BFCL tool-name selection comparison</title>
+<desc id="desc">1694 cases and 4768 fields. Original Qwen 39.37 percent case accuracy versus dev-1.0 77.39 percent. Tool-name selection projection only, not full BFCL execution.</desc>
+<rect width="1100" height="530" rx="18" fill="#f5f7fb"/>
+<g font-family="Arial, sans-serif" fill="#14243b">
+<text x="40" y="45" font-size="25" font-weight="700">BFCL tool-name selection</text>
+<text x="40" y="75" font-size="15" fill="#52647a">DI 0.2.1 · 1,694 cases · 4,768 yes/no fields · no argument or execution scoring</text>
+<text x="40" y="122" font-size="18" font-weight="600">Case exact accuracy</text>
+<text x="40" y="145" font-size="13" fill="#52647a">higher is better</text>
+<rect x="340" y="106" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="106" width="240.183" height="24" rx="4" fill="#4a75c5"/>
+<text x="970" y="124" font-size="17" font-weight="600">39.37%</text>
+<rect x="340" y="141" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="141" width="472.084" height="24" rx="4" fill="#13877c"/>
+<text x="970" y="159" font-size="17" font-weight="600">77.39%</text>
+<text x="40" y="235" font-size="18" font-weight="600">Necessary-tool recall</text>
+<text x="40" y="258" font-size="13" fill="#52647a">higher is better</text>
+<rect x="340" y="219" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="219" width="609.640" height="24" rx="4" fill="#4a75c5"/>
+<text x="970" y="237" font-size="17" font-weight="600">99.94%</text>
+<rect x="340" y="254" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="254" width="590.195" height="24" rx="4" fill="#13877c"/>
+<text x="970" y="272" font-size="17" font-weight="600">96.75%</text>
+<text x="40" y="348" font-size="18" font-weight="600">Unnecessary-tool selection</text>
+<text x="40" y="371" font-size="13" fill="#52647a">lower is better</text>
+<rect x="340" y="332" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="332" width="593.530" height="24" rx="4" fill="#4a75c5"/>
+<text x="970" y="350" font-size="17" font-weight="600">97.30%</text>
+<rect x="340" y="367" width="610" height="24" rx="4" fill="#e5eaf2"/>
+<rect x="340" y="367" width="91.877" height="24" rx="4" fill="#13877c"/>
+<text x="970" y="385" font-size="17" font-weight="600">15.06%</text>
+<rect x="40" y="461" width="17" height="17" rx="3" fill="#4a75c5"/>
+<text x="66" y="475" font-size="15">Official Qwen3.5-0.8B</text>
+<rect x="340" y="461" width="17" height="17" rx="3" fill="#13877c"/>
+<text x="366" y="475" font-size="15">dev-1.0</text>
+<text x="40" y="510" font-size="13" fill="#52647a">Shared data and scorer; different training origins, prompts, attention and output interfaces.</text>
+</g></svg>

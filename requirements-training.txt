@@ -1,0 +1,20 @@
+# Actual first-run Linux CUDA environment; Python 3.12.15, CUDA 13.0.
+# Install with: uv pip install --torch-backend=cu130 -r requirements-training.txt
+# Full observed environment: provenance/installed-environment.json
+# Original image recipe: training/qwen35-0.8b/Dockerfile
+torch==2.14.0+cu130
+torchvision==0.29.0+cu130
+transformers==5.17.0
+accelerate==1.15.0
+peft==0.21.2
+bitsandbytes==0.50.2
+pillow==12.3.0
+httpx==0.28.1
+numpy==2.5.3
+huggingface-hub==1.31.0
+safetensors==0.8.0
+flash-linear-attention==0.5.2
+fla-core==0.5.2
+einops==0.8.2
+tokenizers==0.23.2
+triton==3.8.0

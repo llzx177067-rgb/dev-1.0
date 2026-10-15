@@ -1,0 +1,65 @@
+[project]
+name = "autojev"
+version = "0.2.0"
+description = "One-pass decisions with full-weight supervised training"
+readme = "README.md"
+classifiers = ["Private :: Do Not Upload"]
+requires-python = ">=3.12"
+dependencies = [
+  "torch==2.14.0",
+  "torchvision==0.29.0",
+  "transformers==5.17.0",
+  "accelerate==1.15.0",
+  "pillow==12.3.0",
+  "fastapi==0.141.1",
+  "uvicorn==0.52.4",
+  "httpx==0.28.1",
+  "python-dotenv==1.2.3",
+  "datasets==5.0.1",
+  "matplotlib==3.11.2",
+  "kernels==0.16.1",
+  "flash-linear-attention==0.5.2",
+  "safetensors==0.8.0",
+  "numpy==2.5.3",
+  "huggingface-hub==1.31.0",
+  "imageio-ffmpeg>=0.6",
+]
+
+[project.scripts]
+autojev-data = "autojev.data:main"
+autojev-train = "autojev.train:main"
+autojev-evaluate = "autojev.evaluate:main"
+autojev-serve = "autojev.server:main"
+autojev-report = "autojev.report:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+exclude-newer = "7 days"
+
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple"
+default = true
+
+[tool.ruff]
+extend = "../../pyproject.toml"
+
+[tool.ruff.lint.extend-per-file-ignores]
+"src/autojev/report.py" = ["PLR0911"]
+
+[dependency-groups]
+dev = ["mypy>=2.3.1"]
+
+[tool.mypy]
+files = ["src/autojev"]
+python_version = "3.12"
+strict = true
+cache_dir = ".cache/mypy"
+untyped_calls_exclude = ["transformers", "datasets", "torch._tensor.Tensor.backward"]
+
+[[tool.mypy.overrides]]
+module = ["datasets.*"]
+ignore_missing_imports = true

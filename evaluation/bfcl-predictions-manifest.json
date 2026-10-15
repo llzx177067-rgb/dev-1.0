@@ -1,0 +1,86 @@
+{
+  "schema": "dev-bfcl-prediction-artifact-1",
+  "artifact": "bfcl-predictions.jsonl.gz",
+  "artifact_bytes": 386158,
+  "artifact_sha256": "9cfa5e8898d4a27f0c1dfeb65c2b78a5241511e7c8b17a12c9b2386762d12dc6",
+  "cases": 1694,
+  "fields_per_model": 4768,
+  "models": [
+    "Qwen/Qwen3.5-0.8B",
+    "dev-1.0"
+  ],
+  "expected_counts": {
+    "Qwen/Qwen3.5-0.8B": {
+      "cases": 1694,
+      "correct_cases": 667,
+      "fields": 4768,
+      "tp": 1693,
+      "fp": 2991,
+      "fn": 1,
+      "tn": 83
+    },
+    "dev-1.0": {
+      "cases": 1694,
+      "correct_cases": 1311,
+      "fields": 4768,
+      "tp": 1639,
+      "fp": 463,
+      "fn": 55,
+      "tn": 2611
+    }
+  },
+  "expected_paired_cases": {
+    "both_correct": 644,
+    "dev_only_correct": 667,
+    "qwen_only_correct": 23,
+    "both_wrong": 360
+  },
+  "source_fingerprints": {
+    "official_results_sha256": "6a9b6e078c719949e7f011e88c724c14e815bc28681e049ee85ba5546afab39a",
+    "dev_bfcl_results_sha256": "e0a3234f302c374892df2b779ccbcec3384882fe2a85e9065d01c718b7f51726",
+    "dev_full_eval_results_sha256": "e7165297acdcb4546e3e6f4cce36dbc5a001b8a9a7e3afd3e789d264fdb02e4f",
+    "scoring_rows_sha256": "cccadcf8dbf6c6d02ac85120479e31d135a7b3ec5dbf509611e85f384a228e98",
+    "inputs_sha256": "2ea871acc27defabc98a72e97d3c731ad01bf4b8fa00fe0a7dc9a6aaf0d0629d",
+    "harness_commit": "f8552a13b643d39f61185f5951bb5fed16bedf51",
+    "qwen_model_manifest_sha256": "1291eacc2c782897c035fef844f6b66bdadbc7c6b89002c58f1b641c161e9e79",
+    "bfcl_repository_commit": "916260dfc116bf06793a1af79b4ec8195b0453b6"
+  },
+  "source_data": {
+    "simple": {
+      "source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/BFCL_v3_simple.json",
+      "sha256": "fbc37b2ad252bf9af985582e0e07b456173fe627d957491472ea9cef5fb83158",
+      "gold_source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/possible_answer/BFCL_v3_simple.json",
+      "gold_sha256": "ec5b3feb9608d46eeff53f70e8610a9d9c3e3acc0b1d024a89352a08dc33887e",
+      "revision": "source snapshot 2026-09-18",
+      "source_id": "simple_399"
+    },
+    "live_simple": {
+      "source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/BFCL_v3_live_simple.json",
+      "sha256": "dc741b3482efb41920af8c5c620c29609a9e2412e4543364416ef63ab2076887",
+      "gold_source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/possible_answer/BFCL_v3_live_simple.json",
+      "gold_sha256": "3c532bc5930ec1d90803ab1ff26d102ec4706aa0bdd66f15f4c3c3064f16a097",
+      "revision": "source snapshot 2026-09-18",
+      "source_id": "live_simple_257-137-1"
+    },
+    "live_multiple": {
+      "source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/BFCL_v3_live_multiple.json",
+      "sha256": "c74cb322c7b44d8f363e2d550e1e7c408f13d3bcbc2373772e6e3eb8079d2904",
+      "gold_source": "artifacts/benchmark-suite/raw/repos/bfcl/berkeley-function-call-leaderboard/data/possible_answer/BFCL_v3_live_multiple.json",
+      "gold_sha256": "8bee92560362fa9f1cbda327d41b64752283a4a73971ab46466a646791e70650",
+      "revision": "source snapshot 2026-09-18",
+      "source_id": "live_multiple_1036-263-1"
+    }
+  },
+  "contents": "Case IDs, tool candidate order, yes/no option order, expected labels, both complete saved answers/probabilities, and original payload SHA256; no state/question/schema descriptions or conversation text",
+  "training_data": false,
+  "saved_prediction_rescore_only": true,
+  "new_inference_executed": false,
+  "scope": "Decision Index 0.2.1 BFCL tool-name selection projection, not full BFCL leaderboard",
+  "license": {
+    "benchmark": "Apache-2.0",
+    "source": "https://raw.githubusercontent.com/gorilla-llm/gorilla/916260dfc116bf06793a1af79b4ec8195b0453b6/LICENSE",
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "local_copy": "../LICENSES/BFCL-Apache-2.0.txt"
+  },
+  "fresh_inference_requires": "Acquire the official DI harness at source_fingerprints.harness_commit and the pinned upstream BFCL data; this artifact rescoring script does not rerun models"
+}

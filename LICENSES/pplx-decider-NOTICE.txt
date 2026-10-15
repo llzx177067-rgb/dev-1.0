@@ -1,0 +1,13 @@
+pplx-decider-v1.1-27b
+
+Derived from Qwen/Qwen3.8-27B, revision
+1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0, under Apache License 2.0.
+
+Modifications: a 255-option decision readout replaces the generation output
+layer. Backbone, vision and readout weights were updated by supervised
+fine-tuning. Full-attention layers use noncausal attention; pooling uses the
+last token. A separately fitted calibration temperature is stored in
+decision_config.json.
+
+This private artifact contains the evaluated native checkpoint and its frozen
+source implementation. No affiliation with or endorsement by Qwen is implied.

@@ -1,0 +1,21 @@
+dev-1.0
+
+This source distribution adapts the public pplx-decider implementation from
+perplexity-ai/pplx-decider-v1.1-27b, source release
+db124e5056059be396ec5ba69b97a33dd6adb815, under Apache License 2.0.
+The original upstream artifact NOTICE is preserved in LICENSES/.
+
+The trained checkpoint is an NF4 LoRA adapter and a 255-option FP32 decision
+readout for Qwen/Qwen3.5-0.8B-Base, revision
+dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68. The Qwen base is separately licensed
+under Apache License 2.0; no affiliation with or endorsement by Qwen or
+Perplexity is implied.
+
+Local changes include Qwen3.5-0.8B compatibility, NF4 LoRA training, exact CPU
+encoding and token-budget microbatch collation, first-run artifact verification,
+and a release inference wrapper. The 255-option readout, noncausal full-attention
+method and supervised decision training originate from the upstream source.
+
+Dataset contents retain their source-specific licenses and restrictions.
+This code license does not relicense datasets or guarantee unrestricted
+commercial use of models trained on those datasets.

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="740" viewBox="0 0 1100 740" role="img" aria-labelledby="title desc">
+<title id="title">dev-1.0 original development-set training monitor</title>
+<desc id="desc">Eleven recorded evaluations on 1497 original development examples, with temperature fit on 983 separate examples. Not BFCL scores. Development accuracy improves from 37.34 to 85.91 percent and calibrated ECE from 18.48 to 1.65 percent.</desc>
+<rect width="1100" height="740" rx="18" fill="#f5f7fb"/>
+<g font-family="Arial, sans-serif" fill="#14243b">
+<text x="40" y="42" font-size="25" font-weight="700">dev-1.0 training monitor</text>
+<text x="40" y="70" font-size="15" fill="#52647a">Original development set: 1,497 examples · separate temperature set: 983 examples · not BFCL</text>
+<text x="40" y="101" font-size="18" font-weight="600">Development accuracy (%)</text>
+<line x1="100" y1="226" x2="1000" y2="226" stroke="#dbe2ed"/>
+<text x="86" y="231" text-anchor="end" font-size="13" fill="#52647a">0</text>
+<line x1="100" y1="173.5" x2="1000" y2="173.5" stroke="#dbe2ed"/>
+<text x="86" y="178.5" text-anchor="end" font-size="13" fill="#52647a">50</text>
+<line x1="100" y1="121" x2="1000" y2="121" stroke="#dbe2ed"/>
+<text x="86" y="126" text-anchor="end" font-size="13" fill="#52647a">100</text>
+<polyline points="100.000,186.792 191.912,146.882 283.824,139.026 375.735,138.395 467.647,137.202 559.559,136.922 651.471,136.571 743.382,136.782 835.294,136.291 927.206,136.501 1000.000,135.800" fill="none" stroke="#13877c" stroke-width="3"/>
+<circle cx="100.000" cy="186.792" r="4" fill="#13877c"><title>step 0: 37.341349365</title></circle>
+<circle cx="191.912" cy="146.882" r="4" fill="#13877c"><title>step 250: 75.350701403</title></circle>
+<circle cx="283.824" cy="139.026" r="4" fill="#13877c"><title>step 500: 82.832331329</title></circle>
+<circle cx="375.735" cy="138.395" r="4" fill="#13877c"><title>step 750: 83.433533734</title></circle>
+<circle cx="467.647" cy="137.202" r="4" fill="#13877c"><title>step 1000: 84.569138277</title></circle>
+<circle cx="559.559" cy="136.922" r="4" fill="#13877c"><title>step 1250: 84.836339345</title></circle>
+<circle cx="651.471" cy="136.571" r="4" fill="#13877c"><title>step 1500: 85.170340681</title></circle>
+<circle cx="743.382" cy="136.782" r="4" fill="#13877c"><title>step 1750: 84.969939880</title></circle>
+<circle cx="835.294" cy="136.291" r="4" fill="#13877c"><title>step 2000: 85.437541750</title></circle>
+<circle cx="927.206" cy="136.501" r="4" fill="#13877c"><title>step 2250: 85.237140949</title></circle>
+<circle cx="1000.000" cy="135.800" r="4" fill="#13877c"><title>step 2448: 85.905143621</title></circle>
+<text x="100.000" y="250" text-anchor="middle" font-size="13" fill="#52647a">0</text>
+<text x="283.824" y="250" text-anchor="middle" font-size="13" fill="#52647a">500</text>
+<text x="467.647" y="250" text-anchor="middle" font-size="13" fill="#52647a">1,000</text>
+<text x="651.471" y="250" text-anchor="middle" font-size="13" fill="#52647a">1,500</text>
+<text x="835.294" y="250" text-anchor="middle" font-size="13" fill="#52647a">2,000</text>
+<text x="1000.000" y="250" text-anchor="middle" font-size="13" fill="#52647a">2,448</text>
+<text x="1000" y="270" text-anchor="end" font-size="12" fill="#52647a">optimizer step</text>
+<text x="40" y="281" font-size="18" font-weight="600">Calibrated ECE (%)</text>
+<line x1="100" y1="406" x2="1000" y2="406" stroke="#dbe2ed"/>
+<text x="86" y="411" text-anchor="end" font-size="13" fill="#52647a">0</text>
+<line x1="100" y1="353.5" x2="1000" y2="353.5" stroke="#dbe2ed"/>
+<text x="86" y="358.5" text-anchor="end" font-size="13" fill="#52647a">10</text>
+<line x1="100" y1="301" x2="1000" y2="301" stroke="#dbe2ed"/>
+<text x="86" y="306" text-anchor="end" font-size="13" fill="#52647a">20</text>
+<polyline points="100.000,308.978 191.912,390.991 283.824,390.055 375.735,397.104 467.647,391.866 559.559,392.120 651.471,395.291 743.382,396.276 835.294,394.938 927.206,397.234 1000.000,397.324" fill="none" stroke="#bd673c" stroke-width="3"/>
+<circle cx="100.000" cy="308.978" r="4" fill="#bd673c"><title>step 0: 18.480451093</title></circle>
+<circle cx="191.912" cy="390.991" r="4" fill="#bd673c"><title>step 250: 2.858884167</title></circle>
+<circle cx="283.824" cy="390.055" r="4" fill="#bd673c"><title>step 500: 3.037218131</title></circle>
+<circle cx="375.735" cy="397.104" r="4" fill="#bd673c"><title>step 750: 1.694409623</title></circle>
+<circle cx="467.647" cy="391.866" r="4" fill="#bd673c"><title>step 1000: 2.692119683</title></circle>
+<circle cx="559.559" cy="392.120" r="4" fill="#bd673c"><title>step 1250: 2.643720735</title></circle>
+<circle cx="651.471" cy="395.291" r="4" fill="#bd673c"><title>step 1500: 2.039715645</title></circle>
+<circle cx="743.382" cy="396.276" r="4" fill="#bd673c"><title>step 1750: 1.852214161</title></circle>
+<circle cx="835.294" cy="394.938" r="4" fill="#bd673c"><title>step 2000: 2.107138402</title></circle>
+<circle cx="927.206" cy="397.234" r="4" fill="#bd673c"><title>step 2250: 1.669789933</title></circle>
+<circle cx="1000.000" cy="397.324" r="4" fill="#bd673c"><title>step 2448: 1.652511470</title></circle>
+<text x="100.000" y="430" text-anchor="middle" font-size="13" fill="#52647a">0</text>
+<text x="283.824" y="430" text-anchor="middle" font-size="13" fill="#52647a">500</text>
+<text x="467.647" y="430" text-anchor="middle" font-size="13" fill="#52647a">1,000</text>
+<text x="651.471" y="430" text-anchor="middle" font-size="13" fill="#52647a">1,500</text>
+<text x="835.294" y="430" text-anchor="middle" font-size="13" fill="#52647a">2,000</text>
+<text x="1000.000" y="430" text-anchor="middle" font-size="13" fill="#52647a">2,448</text>
+<text x="1000" y="450" text-anchor="end" font-size="12" fill="#52647a">optimizer step</text>
+<text x="40" y="461" font-size="18" font-weight="600">Fitted temperature</text>
+<line x1="100" y1="586" x2="1000" y2="586" stroke="#dbe2ed"/>
+<text x="86" y="591" text-anchor="end" font-size="13" fill="#52647a">0</text>
+<line x1="100" y1="533.5" x2="1000" y2="533.5" stroke="#dbe2ed"/>
+<text x="86" y="538.5" text-anchor="end" font-size="13" fill="#52647a">1.2</text>
+<line x1="100" y1="481" x2="1000" y2="481" stroke="#dbe2ed"/>
+<text x="86" y="486" text-anchor="end" font-size="13" fill="#52647a">2.4</text>
+<polyline points="100.000,489.350 191.912,551.727 283.824,549.529 375.735,543.473 467.647,546.552 559.559,540.838 651.471,542.781 743.382,543.932 835.294,541.996 927.206,541.571 1000.000,542.326" fill="none" stroke="#4a75c5" stroke-width="3"/>
+<circle cx="100.000" cy="489.350" r="4" fill="#4a75c5"><title>step 0: 2.209143559</title></circle>
+<circle cx="191.912" cy="551.727" r="4" fill="#4a75c5"><title>step 250: 0.783378387</title></circle>
+<circle cx="283.824" cy="549.529" r="4" fill="#4a75c5"><title>step 500: 0.833619145</title></circle>
+<circle cx="375.735" cy="543.473" r="4" fill="#4a75c5"><title>step 750: 0.972037503</title></circle>
+<circle cx="467.647" cy="546.552" r="4" fill="#4a75c5"><title>step 1000: 0.901667168</title></circle>
+<circle cx="559.559" cy="540.838" r="4" fill="#4a75c5"><title>step 1250: 1.032266257</title></circle>
+<circle cx="651.471" cy="542.781" r="4" fill="#4a75c5"><title>step 1500: 0.987872486</title></circle>
+<circle cx="743.382" cy="543.932" r="4" fill="#4a75c5"><title>step 1750: 0.961557711</title></circle>
+<circle cx="835.294" cy="541.996" r="4" fill="#4a75c5"><title>step 2000: 1.005803923</title></circle>
+<circle cx="927.206" cy="541.571" r="4" fill="#4a75c5"><title>step 2250: 1.015530685</title></circle>
+<circle cx="1000.000" cy="542.326" r="4" fill="#4a75c5"><title>step 2448: 0.998256664</title></circle>
+<text x="100.000" y="610" text-anchor="middle" font-size="13" fill="#52647a">0</text>
+<text x="283.824" y="610" text-anchor="middle" font-size="13" fill="#52647a">500</text>
+<text x="467.647" y="610" text-anchor="middle" font-size="13" fill="#52647a">1,000</text>
+<text x="651.471" y="610" text-anchor="middle" font-size="13" fill="#52647a">1,500</text>
+<text x="835.294" y="610" text-anchor="middle" font-size="13" fill="#52647a">2,000</text>
+<text x="1000.000" y="610" text-anchor="middle" font-size="13" fill="#52647a">2,448</text>
+<text x="1000" y="630" text-anchor="end" font-size="12" fill="#52647a">optimizer step</text>
+<text x="40" y="688" font-size="14" fill="#52647a">626,546 training examples · 2,448 updates · QLoRA + FP32 decision readout · no reinforcement learning</text>
+<text x="40" y="716" font-size="13" fill="#52647a">Lines connect recorded evaluation points; these are development monitors used during training.</text>
+</g></svg>

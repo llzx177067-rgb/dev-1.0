@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.env
+models/
+outputs/
+data/
+training/qwen35-0.8b/runs/
+training/qwen35-0.8b/cache/

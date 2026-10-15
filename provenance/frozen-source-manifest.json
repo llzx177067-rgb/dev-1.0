@@ -1,0 +1,188 @@
+{
+  "upstream_source_revision": "db124e5056059be396ec5ba69b97a33dd6adb815",
+  "trainer_run": "server-h200-20261013",
+  "files": {
+    "training/qwen35-0.8b/qwen35_qlora.py": {
+      "sha256": "d1a4e6bcf6a98ed71c470b84036fe49f053997dd586acb4d8c7ecc9c1747c872",
+      "bytes": 42587,
+      "original_source_sha256": "d1a4e6bcf6a98ed71c470b84036fe49f053997dd586acb4d8c7ecc9c1747c872",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/__init__.py": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "original_source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/data.py": {
+      "sha256": "afa8178c12a25ef3490f5b6691fc045de2aaa4dd7a204325cd8e0cd0f190e000",
+      "bytes": 34479,
+      "original_source_sha256": "afa8178c12a25ef3490f5b6691fc045de2aaa4dd7a204325cd8e0cd0f190e000",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/distributed.py": {
+      "sha256": "d8e5bf5c0e97e29d348bc2169f283eba10d3487f5c7c102949e2f6c249c74951",
+      "bytes": 3138,
+      "original_source_sha256": "d8e5bf5c0e97e29d348bc2169f283eba10d3487f5c7c102949e2f6c249c74951",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/evaluate.py": {
+      "sha256": "f293a50320ab6573ca18bce28290f1a6914679c6f6de540644c9f09ca79dd2fd",
+      "bytes": 26697,
+      "original_source_sha256": "f293a50320ab6573ca18bce28290f1a6914679c6f6de540644c9f09ca79dd2fd",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/events.py": {
+      "sha256": "72315600ac072a73f70f7ed92ec62a79c91baacd128e6da0591549ff17b3f911",
+      "bytes": 756,
+      "original_source_sha256": "72315600ac072a73f70f7ed92ec62a79c91baacd128e6da0591549ff17b3f911",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/exact_batch.py": {
+      "sha256": "0c69c4c0e0358e5ac622f78918643d7bb1bb6a4ae60c1adfd199404061d42690",
+      "bytes": 3489,
+      "original_source_sha256": "0c69c4c0e0358e5ac622f78918643d7bb1bb6a4ae60c1adfd199404061d42690",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/loss.py": {
+      "sha256": "2e4f4ae4b8aafac0247f931220b592a140bd2f5cd032dce8a517a158fbeedda3",
+      "bytes": 638,
+      "original_source_sha256": "2e4f4ae4b8aafac0247f931220b592a140bd2f5cd032dce8a517a158fbeedda3",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/model.py": {
+      "sha256": "bdabd8ed45dafa6ab1351798a16be5df729e1f500377f86bae50a07714ce5aa4",
+      "bytes": 17489,
+      "original_source_sha256": "bdabd8ed45dafa6ab1351798a16be5df729e1f500377f86bae50a07714ce5aa4",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/optim.py": {
+      "sha256": "68b1b30c7fce460245a613b9154b23c1fd2659af0327f9f5cfa2efe1b68ef147",
+      "bytes": 4702,
+      "original_source_sha256": "68b1b30c7fce460245a613b9154b23c1fd2659af0327f9f5cfa2efe1b68ef147",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/report.py": {
+      "sha256": "158edec55116e4b7801df5d23c08c5f4a754be566012d0cae80d401380c5c563",
+      "bytes": 49671,
+      "original_source_sha256": "158edec55116e4b7801df5d23c08c5f4a754be566012d0cae80d401380c5c563",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/server.py": {
+      "sha256": "840088936dbcd19c9c1a0503f348fdc3e5aa07b7b58c690eaccc9dda314691c1",
+      "bytes": 8698,
+      "original_source_sha256": "840088936dbcd19c9c1a0503f348fdc3e5aa07b7b58c690eaccc9dda314691c1",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_numeric.py": {
+      "sha256": "677a2123a33d6e90343ababf43c844e98b235abf558fc1bda36a6b0b146c1b21",
+      "bytes": 17397,
+      "original_source_sha256": "677a2123a33d6e90343ababf43c844e98b235abf558fc1bda36a6b0b146c1b21",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_pipeline.py": {
+      "sha256": "248830ae7b49b4000354a2fd8ea19ce0f14d131fdd89124db38b7f882d24e8dd",
+      "bytes": 33777,
+      "original_source_sha256": "248830ae7b49b4000354a2fd8ea19ce0f14d131fdd89124db38b7f882d24e8dd",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_synthetic.py": {
+      "sha256": "3d0e520a5e901605dcbc89663a35f7ada93204cef3dd50946f0d307db8846764",
+      "bytes": 53816,
+      "original_source_sha256": "3d0e520a5e901605dcbc89663a35f7ada93204cef3dd50946f0d307db8846764",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/synthetic.py": {
+      "sha256": "e285155412372d55e07f2199c040b5e9dd8c0b716ad9b4fd907f06149be38633",
+      "bytes": 21916,
+      "original_source_sha256": "e285155412372d55e07f2199c040b5e9dd8c0b716ad9b4fd907f06149be38633",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/train.py": {
+      "sha256": "33b7c1447abbfd0ed42f5610c6752b5ff7e2427ab4dd576a0b39a696581f0748",
+      "bytes": 49282,
+      "original_source_sha256": "33b7c1447abbfd0ed42f5610c6752b5ff7e2427ab4dd576a0b39a696581f0748",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/src/autojev/types.py": {
+      "sha256": "250ba2eea1cd9bc5501bc76ba76b2f4a1d6c692a7fb1bba4b01affff38cb81ca",
+      "bytes": 1800,
+      "original_source_sha256": "250ba2eea1cd9bc5501bc76ba76b2f4a1d6c692a7fb1bba4b01affff38cb81ca",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/uv.lock": {
+      "sha256": "cba79e0f2caa23d14740ce0008076aadd5dd739f59a5fdf9eaaf1943fe207fc0",
+      "bytes": 696353,
+      "original_source_sha256": "cba79e0f2caa23d14740ce0008076aadd5dd739f59a5fdf9eaaf1943fe207fc0",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/runtime-source/pyproject.toml": {
+      "sha256": "e4d530c6a9589ebb719571582bf910cb6cd7dfd81235b88d5dd30398a083d2fd",
+      "bytes": 1462,
+      "original_source_sha256": "e4d530c6a9589ebb719571582bf910cb6cd7dfd81235b88d5dd30398a083d2fd",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/Dockerfile": {
+      "sha256": "68c7c7a5cfab179a302b8475de725a646164326df3ef836ac260e6e389c6979f",
+      "bytes": 1336,
+      "original_source_sha256": "68c7c7a5cfab179a302b8475de725a646164326df3ef836ac260e6e389c6979f",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/prepare_data.py": {
+      "sha256": "85c250192a1bf07355ceb5ed058170dcc69206bb55cee84562863b3c4fdfb711",
+      "bytes": 27245,
+      "original_source_sha256": "85c250192a1bf07355ceb5ed058170dcc69206bb55cee84562863b3c4fdfb711",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/verify_prepared_data.py": {
+      "sha256": "e7b5a507d0796a472749113229c19622a8a58225a7e970b82a803747883fe0ef",
+      "bytes": 8492,
+      "original_source_sha256": "e7b5a507d0796a472749113229c19622a8a58225a7e970b82a803747883fe0ef",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/verify_qlora_cpu.py": {
+      "sha256": "193f2dcdfdfbfedbf7bf66f862479b2859ff53e946f9cea051b5762d61c37214",
+      "bytes": 5015,
+      "original_source_sha256": "193f2dcdfdfbfedbf7bf66f862479b2859ff53e946f9cea051b5762d61c37214",
+      "byte_for_byte": true
+    },
+    "training/qwen35-0.8b/exact_batch.py": {
+      "sha256": "0c69c4c0e0358e5ac622f78918643d7bb1bb6a4ae60c1adfd199404061d42690",
+      "bytes": 3489,
+      "original_source_sha256": "0c69c4c0e0358e5ac622f78918643d7bb1bb6a4ae60c1adfd199404061d42690",
+      "byte_for_byte": true
+    },
+    "scripts/download_qwen35_base.py": {
+      "sha256": "e091557941e91ccd4cd7844d99a4d9c8f68eeaf34d8fc891e05886ef610a3492",
+      "bytes": 9699,
+      "original_source_sha256": "a5bdb45f767d86bb7f224de2ca76a82e7765c6940760f9098b0629f1ec6c0506",
+      "byte_for_byte": false
+    }
+  },
+  "training_implementation_files_copied_byte_for_byte": true,
+  "training_implementation_files": [
+    "training/qwen35-0.8b/qwen35_qlora.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/__init__.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/data.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/distributed.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/evaluate.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/events.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/exact_batch.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/loss.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/model.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/optim.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/report.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/server.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_numeric.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_pipeline.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/sft_synthetic.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/synthetic.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/train.py",
+    "training/qwen35-0.8b/runtime-source/src/autojev/types.py",
+    "training/qwen35-0.8b/runtime-source/uv.lock",
+    "training/qwen35-0.8b/runtime-source/pyproject.toml"
+  ],
+  "auxiliary_release_changes": {
+    "scripts/download_qwen35_base.py": "Download receipt workstation WSL path replaced with its actual local snapshot directory; model revision, weights and verification unchanged"
+  }
+}

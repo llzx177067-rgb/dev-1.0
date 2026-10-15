@@ -1,0 +1,118 @@
+{
+  "schema": "dev-1.0-bfcl-release",
+  "scope": {
+    "edition": "0.2.1",
+    "catalog_id": 1,
+    "base_uncompressed_sha256": "b2b56d6fb636837ca469e689087bdbf373dda8de7638aa2da6793e6eda0792d5",
+    "added_uncompressed_sha256": "7429f3c9cdddb772c1cfc42bb2a45e8516b0032152b746e6929f1c8b52f4ce89",
+    "exclusions_sha256": "331df32d4b719c7db43214d0e5d85859d39c3b2eb7d0b3812214cce150155e81",
+    "strict_original_suite_verified": true,
+    "requests": 1694,
+    "fields": 4768,
+    "cases": 1694
+  },
+  "metric": "case exact accuracy; all candidate-tool fields must match",
+  "scope_limit": "DI 0.2.1 BFCL tool-name selection only; excludes arguments, call order, and execution",
+  "models": [
+    {
+      "name": "Qwen/Qwen3.5-0.8B",
+      "role": "official_post_trained_reference",
+      "revision": "2fc06364715b967f1860aea9cf38778875588b17",
+      "correct_cases": 667,
+      "full_denominator_cases": 1694,
+      "full_denominator_case_accuracy": 0.3937426210153483,
+      "tp": 1693,
+      "fp": 2991,
+      "fn": 1,
+      "tn": 83,
+      "scored_fields": 4768,
+      "positive_recall": 0.999409681227863,
+      "positive_precision": 0.3614432109308284,
+      "false_positive_rate": 0.9729993493819128,
+      "field_accuracy": 0.3724832214765101
+    },
+    {
+      "name": "dev-1.0",
+      "role": "released_decision_adapter",
+      "base": "Qwen/Qwen3.5-0.8B-Base",
+      "base_revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+      "checkpoint_step": 2448,
+      "saved_temperature": 0.9982566635954637,
+      "correct_cases": 1311,
+      "full_denominator_cases": 1694,
+      "full_denominator_case_accuracy": 0.7739079102715466,
+      "tp": 1639,
+      "fp": 463,
+      "fn": 55,
+      "tn": 2611,
+      "scored_fields": 4768,
+      "positive_recall": 0.9675324675324676,
+      "positive_precision": 0.7797335870599429,
+      "false_positive_rate": 0.15061808718282368,
+      "field_accuracy": 0.8913590604026845
+    }
+  ],
+  "changes": {
+    "accuracy_percentage_points": 38.01652892561983,
+    "relative_accuracy_increase_percent": 96.55172413793103,
+    "relative_error_reduction_percent": 62.70691333982472,
+    "false_positive_rate_percentage_points": -82.2381262199089,
+    "positive_recall_percentage_points": -3.1877213695395423
+  },
+  "tracks": {
+    "simple": {
+      "cases": 399,
+      "qwen_correct": 399,
+      "dev_correct": 398,
+      "qwen_accuracy": 1.0,
+      "dev_accuracy": 0.9974937343358395
+    },
+    "live_simple": {
+      "cases": 258,
+      "qwen_correct": 258,
+      "dev_correct": 236,
+      "qwen_accuracy": 1.0,
+      "dev_accuracy": 0.9147286821705426
+    },
+    "live_multiple": {
+      "cases": 1037,
+      "qwen_correct": 10,
+      "dev_correct": 677,
+      "qwen_accuracy": 0.009643201542912247,
+      "dev_accuracy": 0.6528447444551592
+    }
+  },
+  "paired_cases": {
+    "both_correct": 644,
+    "dev_only_correct": 667,
+    "qwen_only_correct": 23,
+    "both_wrong": 360
+  },
+  "coverage": {
+    "cases": 1694,
+    "fields": 4768,
+    "all_status_ok": true,
+    "payload_identity_matched_cases": 1694,
+    "unsupported": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "interface_difference": "Official causal LM/full vocabulary head/generic prompt versus trained Decider readout/internal prompt/attention; shared dataset and scorer, different model interfaces.",
+  "controlled_weight_only_ablation": false,
+  "full_bfcl_leaderboard_result": false,
+  "source_fingerprints": {
+    "official_results_sha256": "6a9b6e078c719949e7f011e88c724c14e815bc28681e049ee85ba5546afab39a",
+    "dev_bfcl_results_sha256": "e0a3234f302c374892df2b779ccbcec3384882fe2a85e9065d01c718b7f51726",
+    "dev_full_eval_results_sha256": "e7165297acdcb4546e3e6f4cce36dbc5a001b8a9a7e3afd3e789d264fdb02e4f",
+    "scoring_rows_sha256": "cccadcf8dbf6c6d02ac85120479e31d135a7b3ec5dbf509611e85f384a228e98",
+    "inputs_sha256": "2ea871acc27defabc98a72e97d3c731ad01bf4b8fa00fe0a7dc9a6aaf0d0629d",
+    "harness_commit": "f8552a13b643d39f61185f5951bb5fed16bedf51",
+    "qwen_model_manifest_sha256": "1291eacc2c782897c035fef844f6b66bdadbc7c6b89002c58f1b641c161e9e79"
+  },
+  "constant_yes_baseline": {
+    "correct_cases": 657,
+    "cases": 1694,
+    "accuracy": 0.38783943329397874
+  },
+  "release_excludes_benchmark_source_text": true
+}

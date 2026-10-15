@@ -1,0 +1,38 @@
+{
+  "complete": true,
+  "model": "dev-1.0",
+  "checkpoint_step": 2448,
+  "image_id": "sha256:217e20d6d059ff9ba4f9d03d82c3eb21adf8ae7c5e84bcb78d4ab6301954293d",
+  "device": "NVIDIA H200 NVL",
+  "cuda_device_count": 1,
+  "gpu_power_limit_watts": 280,
+  "process_exit_code": 0,
+  "input_kind": "two invented toy decisions, no benchmark cases",
+  "base_model": "Qwen/Qwen3.5-0.8B-Base",
+  "base_revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+  "temperature": 0.9982566635954637,
+  "temperature_refitted": false,
+  "checkpoint_weights_modified": false,
+  "predictions": [
+    {
+      "type": "choice",
+      "probabilities": {
+        "yes": 0.004156241402437012,
+        "no": 0.995843758597563
+      },
+      "choice": "no",
+      "confidence": 0.991687517195126
+    },
+    {
+      "type": "choice",
+      "probabilities": {
+        "yes": 0.9938383504090781,
+        "no": 0.0061616495909219225
+      },
+      "choice": "yes",
+      "confidence": 0.9876767008181562
+    }
+  ],
+  "input_sha256": "b98fc4643ad6e391ec5aeca8c47ec1607cd344c51c889463c79b96bbd4e88b75",
+  "loader_sha256": "cf9f9927114c46e02ce4c0510e9e524d19ad3a3d8e7bee5da2dbda984e3523ac"
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "state": "The user asks: What is 7 plus 5? Available tool: weather_lookup(city), which retrieves the current weather for a city.",
+    "question": {
+      "type": "choice",
+      "instructions": "Should the assistant select weather_lookup to fulfill this request?",
+      "criteria": {
+        "yes": "Select weather_lookup.",
+        "no": "Do not select weather_lookup."
+      }
+    }
+  },
+  {
+    "state": "The user asks for the weather in Hangzhou right now. Available tool: weather_lookup(city), which retrieves the current weather for a city.",
+    "question": {
+      "type": "choice",
+      "instructions": "Should the assistant select weather_lookup to fulfill this request?",
+      "criteria": {
+        "yes": "Select weather_lookup.",
+        "no": "Do not select weather_lookup."
+      }
+    }
+  }
+]

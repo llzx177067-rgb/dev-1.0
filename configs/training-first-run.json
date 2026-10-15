@@ -1,0 +1,195 @@
+{
+  "model_path": "/models/qwen35-0.8b-base",
+  "output": "training/qwen35-0.8b/runs/server-h200-20261013",
+  "train": "data/qwen35-final/train.jsonl",
+  "development": "data/qwen35-final/dev.jsonl",
+  "temperature": "data/qwen35-final/temperature.jsonl",
+  "smoke_input": null,
+  "rank": 8,
+  "lora_targets": "all-linear",
+  "attention_mode": "noncausal_full_attention",
+  "batch_size": 32,
+  "effective_batch_size": 256,
+  "max_length": 8192,
+  "token_budget": 32768,
+  "lr": 0.0001,
+  "adam_eps": 1e-06,
+  "deterministic": true,
+  "length_bucket": true,
+  "warmup_ratio": 0.05,
+  "epochs": 1,
+  "eval_every": 250,
+  "save_every": 10,
+  "cpu_threads": 4,
+  "seed": 20261012,
+  "base_identity": {
+    "repo": "Qwen/Qwen3.5-0.8B-Base",
+    "revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+    "download_manifest_sha256": "dc862c0965e428ab80fc45ec9593a57e6631c8bef1c2dad2d7ba9206666e6faf",
+    "files": {
+      ".gitattributes": {
+        "bytes": 1570,
+        "sha256": "34448b82c17d60fec9b65b1f093c115ddbaadc04beb1b0140b6bfed2e012a930"
+      },
+      "LICENSE": {
+        "bytes": 11343,
+        "sha256": "50cbab8a892c5f2993b8c7351a99182507472def3b1374558308605d99b86b32"
+      },
+      "README.md": {
+        "bytes": 3727,
+        "sha256": "3cff39d2674e28b95e2df75cdb2d7a687ec391931065b05df83dbae12b447b11"
+      },
+      "config.json": {
+        "bytes": 2907,
+        "sha256": "b90b86f35c8e6925ef74ee04d0e758f0a845c83a42089ad82bbaa948de9b4204"
+      },
+      "merges.txt": {
+        "bytes": 3353259,
+        "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d"
+      },
+      "model.safetensors-00001-of-00001.safetensors": {
+        "bytes": 1746942600,
+        "sha256": "c2b1e5a17d9c1e27685d92ed9b382911ebb99955ecd89052d1721241adfbab6c"
+      },
+      "model.safetensors.index.json": {
+        "bytes": 50900,
+        "sha256": "ce9a885efdf27d3664fdef5d512ad365216f1074051ef840c7cd8e5431495d0a"
+      },
+      "preprocessor_config.json": {
+        "bytes": 390,
+        "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+      },
+      "tokenizer.json": {
+        "bytes": 12807196,
+        "sha256": "fe000e3ed39ed12b8d2481d527d44f93c65d37e87645d2dcc80d1bf9d50d2927"
+      },
+      "tokenizer_config.json": {
+        "bytes": 16712,
+        "sha256": "e611fbccc7c29ef3b1cafb1cb7ea548d189968632901d678fd62be68c47885de"
+      },
+      "video_preprocessor_config.json": {
+        "bytes": 386,
+        "sha256": "d039cd7d88b3502a99edd455496b75b44ecf7dd3b3669748bafac37e6cecc085"
+      },
+      "vocab.json": {
+        "bytes": 6722759,
+        "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+      }
+    }
+  },
+  "data_sha256": {
+    "train": "2c3a16403c75ef3df2d936048a38c686e22dd0520871a33a94946494bac8c20d",
+    "development": "238c0b04ba05188a293fe214e6b3f10be29250d74b2040582bcc162ed2cbd563",
+    "temperature": "602e2609f9b5f82eb892f2ce8055441616b4c52a5ddba3e740d63407d3a6689e"
+  },
+  "implementation_sha256": {
+    "trainer": "d1a4e6bcf6a98ed71c470b84036fe49f053997dd586acb4d8c7ecc9c1747c872",
+    "autojev/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "autojev/data.py": "afa8178c12a25ef3490f5b6691fc045de2aaa4dd7a204325cd8e0cd0f190e000",
+    "autojev/distributed.py": "d8e5bf5c0e97e29d348bc2169f283eba10d3487f5c7c102949e2f6c249c74951",
+    "autojev/evaluate.py": "f293a50320ab6573ca18bce28290f1a6914679c6f6de540644c9f09ca79dd2fd",
+    "autojev/events.py": "72315600ac072a73f70f7ed92ec62a79c91baacd128e6da0591549ff17b3f911",
+    "autojev/exact_batch.py": "0c69c4c0e0358e5ac622f78918643d7bb1bb6a4ae60c1adfd199404061d42690",
+    "autojev/loss.py": "2e4f4ae4b8aafac0247f931220b592a140bd2f5cd032dce8a517a158fbeedda3",
+    "autojev/model.py": "bdabd8ed45dafa6ab1351798a16be5df729e1f500377f86bae50a07714ce5aa4",
+    "autojev/optim.py": "68b1b30c7fce460245a613b9154b23c1fd2659af0327f9f5cfa2efe1b68ef147",
+    "autojev/report.py": "158edec55116e4b7801df5d23c08c5f4a754be566012d0cae80d401380c5c563",
+    "autojev/server.py": "840088936dbcd19c9c1a0503f348fdc3e5aa07b7b58c690eaccc9dda314691c1",
+    "autojev/sft_numeric.py": "677a2123a33d6e90343ababf43c844e98b235abf558fc1bda36a6b0b146c1b21",
+    "autojev/sft_pipeline.py": "248830ae7b49b4000354a2fd8ea19ce0f14d131fdd89124db38b7f882d24e8dd",
+    "autojev/sft_synthetic.py": "3d0e520a5e901605dcbc89663a35f7ada93204cef3dd50946f0d307db8846764",
+    "autojev/synthetic.py": "e285155412372d55e07f2199c040b5e9dd8c0b716ad9b4fd907f06149be38633",
+    "autojev/train.py": "33b7c1447abbfd0ed42f5610c6752b5ff7e2427ab4dd576a0b39a696581f0748",
+    "autojev/types.py": "250ba2eea1cd9bc5501bc76ba76b2f4a1d6c692a7fb1bba4b01affff38cb81ca",
+    "uv.lock": "cba79e0f2caa23d14740ce0008076aadd5dd739f59a5fdf9eaaf1943fe207fc0",
+    "pyproject.toml": "e4d530c6a9589ebb719571582bf910cb6cd7dfd81235b88d5dd30398a083d2fd"
+  },
+  "base_model": "Qwen/Qwen3.5-0.8B-Base",
+  "revision": "dc7cdfe2ee4154fa7e30f5b51ca41bfa40174e68",
+  "rows": 626546,
+  "total_steps": 2448,
+  "row_order": "frozen_input_order_each_epoch; input candidate is pre-shuffled",
+  "environment": {
+    "packages": {
+      "accelerate": "1.15.0",
+      "annotated-doc": "0.0.5",
+      "anyio": "4.15.1",
+      "bitsandbytes": "0.50.2",
+      "certifi": "2026.7.22",
+      "click": "8.5.0",
+      "cuda-bindings": "13.4.3",
+      "cuda-pathfinder": "1.8.3",
+      "cuda-toolkit": "13.0.3.0",
+      "einops": "0.8.2",
+      "filelock": "4.1.1",
+      "fla-core": "0.5.2",
+      "flash-linear-attention": "0.5.2",
+      "fsspec": "2026.9.0",
+      "h11": "0.16.0",
+      "hf-xet": "1.7.0",
+      "httpcore": "1.0.9",
+      "httpx": "0.28.1",
+      "huggingface_hub": "1.31.0",
+      "idna": "3.20",
+      "Jinja2": "3.1.6",
+      "markdown-it-py": "4.2.0",
+      "MarkupSafe": "3.0.4",
+      "mdurl": "0.1.2",
+      "mpmath": "1.3.0",
+      "networkx": "3.7",
+      "numpy": "2.5.3",
+      "nvidia-cublas": "13.1.1.3",
+      "nvidia-cuda-cupti": "13.0.85",
+      "nvidia-cuda-nvrtc": "13.0.88",
+      "nvidia-cuda-runtime": "13.0.96",
+      "nvidia-cudnn-cu13": "9.24.0.43",
+      "nvidia-cufft": "12.0.0.61",
+      "nvidia-cufile": "1.15.1.6",
+      "nvidia-curand": "10.4.0.35",
+      "nvidia-cusolver": "12.0.4.66",
+      "nvidia-cusparse": "12.6.3.3",
+      "nvidia-cusparselt-cu13": "0.8.1",
+      "nvidia-nccl-cu13": "2.30.7",
+      "nvidia-nvjitlink": "13.4.92",
+      "nvidia-nvshmem-cu13": "3.4.5",
+      "nvidia-nvtx": "13.0.85",
+      "packaging": "26.3",
+      "peft": "0.21.2",
+      "pillow": "12.3.0",
+      "pip": "25.0.1",
+      "psutil": "7.2.2",
+      "Pygments": "2.21.0",
+      "PyYAML": "6.0.3",
+      "regex": "2026.9.29",
+      "rich": "15.0.0",
+      "safetensors": "0.8.0",
+      "setuptools": "84.0.0",
+      "shellingham": "1.5.4",
+      "sympy": "1.14.0",
+      "tokenizers": "0.23.2",
+      "torch": "2.14.0+cu130",
+      "torchvision": "0.29.0+cu130",
+      "tqdm": "4.70.1",
+      "transformers": "5.17.0",
+      "triton": "3.8.0",
+      "typer": "0.27.3",
+      "typing_extensions": "4.16.0",
+      "uv": "0.11.2"
+    },
+    "python": "3.12.15 (main, Oct  6 2026, 02:02:22) [GCC 14.2.0]",
+    "torch_cuda": "13.0",
+    "cudnn": 92400,
+    "deterministic_algorithms": true,
+    "deterministic_warn_only": false,
+    "cublas_workspace_config": ":4096:8",
+    "sdpa_backends_enabled": {
+      "flash": true,
+      "memory_efficient": true,
+      "math": true,
+      "cudnn": false
+    }
+  },
+  "quantization": "nf4-double-bfloat16",
+  "frozen_embedding_and_visual_dtype": "bfloat16",
+  "readout_dtype": "float32"
+}
