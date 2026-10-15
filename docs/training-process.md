@@ -2,7 +2,9 @@
 
 dev-1.0 使用固定 Qwen3.5-0.8B-Base 进行 1 epoch 监督式 QLoRA 训练，完成 2,448 次 optimizer updates，读取 626,546 条记录。训练监测显示，原开发集准确率由 **37.34%** 提高至 **85.91%**，校准 ECE 由 **18.48%** 降至 **1.65%**。这些指标来自 1,497 条开发记录，**不是 BFCL 基准分数或 BFCL 训练曲线**。
 
-![原开发集准确率、校准 ECE 与温度监测](training-curves.svg)
+![训练损失与开发集校准 NLL](loss-curves.png)
+
+![开发集准确率与校准 ECE](training-metrics.png)
 
 ## 训练与选模流程
 
@@ -47,7 +49,7 @@ dev-1.0 使用固定 Qwen3.5-0.8B-Base 进行 1 epoch 监督式 QLoRA 训练，�
 | 完整时长 | 25,620.769 秒，约 7 小时 7 分钟，含初始及定期评估 |
 | GPU peak allocated | 7,057,114,112 bytes（6.57 GiB） |
 
-首尾 loss 分别是两个不同更新的训练 batch loss，样本数量和内容不同，不能当作整轮平均损失或独立泛化指标。此处没有为中间未提供的 loss 点补值或生成平滑曲线。
+首尾 loss 分别是两个不同更新的训练 batch loss，样本数量和内容不同，不能当作整轮平均损失或独立泛化指标。上方训练曲线使用完整 2,448 次更新的原始 loss，同时显示固定 50 步滑动均线；滑动均线是记录的汇总，不是新增观测点。完整原始数据见 [training-history.json](training-history.json)，CSV 与绘图复现说明见 [曲线数据与复现](training-curves-data.md)。
 
 ## GPU 功耗
 

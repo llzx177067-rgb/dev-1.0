@@ -1,0 +1,43 @@
+{
+  "schema": "dev-1.0-training-plot-provenance-1",
+  "model": "dev-1.0",
+  "input_sha256": "c19d98fc958f2464daa94d9124b470fcd938485f6c3e2a927305d1968ac088f8",
+  "source_events_sha256": "7cc393b6ab0dfb158d4d4c5c2acc5ba91e90c6adca2b82fa801b520d0784bed2",
+  "plot_script_sha256": "65600c4bc9964c4a05d32c023de52e3f2e8e48822fba260be2ab579ebca03762",
+  "matplotlib_version": "3.10.0",
+  "training_updates": 2448,
+  "development_measurements": 11,
+  "smoothing": {
+    "training_loss_only": "trailing arithmetic mean over 50 actual optimizer updates",
+    "window": 50,
+    "first_smoothed_step": 50,
+    "no_padding_or_extrapolation": true
+  },
+  "evaluation_interpolation": false,
+  "files": {
+    "training-history.csv": {
+      "bytes": 139480,
+      "sha256": "d6766e68e371f8639feed2cab232a38492bd02ce41fb1a8e78b26e8def471153"
+    },
+    "development-history.csv": {
+      "bytes": 1334,
+      "sha256": "6bea64ba996bdf2020f6800a56793dea49de0eb14cf83a964ad858d85d48a924"
+    },
+    "loss-curves.png": {
+      "bytes": 206900,
+      "sha256": "9765531180f06c20556aa89eebd77ad23b22a96853617c44d7a944684dfd8233"
+    },
+    "loss-curves.svg": {
+      "bytes": 146623,
+      "sha256": "57535ca32f7b589aa0ac93906765775975c7c01383739eef0b05d247b2097a3d"
+    },
+    "training-metrics.png": {
+      "bytes": 240104,
+      "sha256": "c35e0f8e91a54fae82cb9487cd832fff25afbef14c215b3f1f003902e02da612"
+    },
+    "training-metrics.svg": {
+      "bytes": 44351,
+      "sha256": "42c0049b6a23e2232c4c09fe1cb0d23956d41e0566841d0dedbca2bf93074e35"
+    }
+  }
+}
