@@ -1,53 +1,51 @@
-# dev-1.0 训练与评估源码
+# dev-1.0
 
-dev-1.0 将 Qwen3.5-0.8B-Base 适配为结构化决策模型，用 **NF4 QLoRA 与独立 FP32 决策头**训练 626,546 条公开来源重建记录。发布 checkpoint 完成 1 epoch、2,448 次更新，共有 5,672,448 个可训练参数。
+**面向 Agent 的轻量级工具选择与概率决策模型。**
 
-在 Decision Index 0.2.1 的 BFCL 工具名选择投影中，dev-1.0 整题准确率 **77.39%**；官方后训练版 Qwen3.5-0.8B 对照为 **39.37%**，相差 **38.02 个百分点**。该结果只衡量工具名选择，不涵盖参数生成、调用顺序和执行；模型起点与推理接口差异见[评估说明](docs/bfcl-report.md)。
+dev-1.0 基于 Qwen3.5-0.8B-Base，将用户请求、上下文和候选选项转换为选择结果及概率分布，可接入 Agent 的工具选择、候选路由和分类流程。在同一套 BFCL 工具名选择评估中，整题准确率达到 **77.39%**，较官方后训练版 Qwen3.5-0.8B 的 **39.37%** 提高 **38.02 个百分点**。
 
-模型发布：[`lzx1770670957/dev-1.0`](https://www.modelscope.cn/models/lzx1770670957/dev-1.0)。数据与重建材料：[`lzx1770670957/dev-data-1.0`](https://www.modelscope.cn/datasets/lzx1770670957/dev-data-1.0)。
+[模型下载](https://modelscope.cn/models/lzx1770670957/dev-1.0) · [数据集](https://modelscope.cn/datasets/lzx1770670957/dev-data-1.0) · [GitHub](https://github.com/llzx177067-rgb/dev-1.0)
 
-## 实现重点
+## 能力亮点
 
-专用答案头、最后位置 readout、软标签交叉熵、候选置换、非因果 full attention 和温度拟合继承 [pplx-decider-v1.1-27b](https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b) 的公开方法，固定源码 release revision 为 `db124e5056059be396ec5ba69b97a33dd6adb815`。本项目围绕 Qwen3.5-0.8B 的混合骨干、低显存训练、批量吞吐与运行审计做适配。
+- **多候选工具选择。** 在 BFCL `live_multiple` 子集中，整题准确率从 **0.96% 提高到 65.28%**，改善多个候选工具之间的选择。
+- **减少无关工具选择。** 在本次 BFCL 对照中，不必要工具选择率从 **97.30% 降至 15.06%**，必要工具召回率为 **96.75%**。
+- **直接输出决策概率。** 返回候选概率、选中答案和置信度，无需生成和解析解释文本，便于接入现有 Agent 流程。
+- **适配有限候选任务。** 支持最多 **255 个候选**和 **8,192 token** 总输入，可用于工具选择、路由和分类；处理文本与可选图像条件。
+- **0.8B 骨干与量化运行。** 使用 NF4 4-bit 语言骨干、LoRA adapter 和独立 FP32 决策头；推理通过配套 CUDA 加载器完成。
 
-- 专用 255 路决策输出，以候选概率替代自由文本生成与解析；保留软标签训练、候选置换增强和独立温度校准。
-- 适配 Qwen3.5 的 6 层 full attention 与 18 层 GatedDeltaNet；只取消 full attention 的因果限制，保留 padding 和 DeltaNet 原递推方向。
-- NF4、double quantization、BF16 compute，语言 all-linear LoRA rank 8；冻结视觉塔与 embedding，单独训练 FP32 readout。
-- CPU 单次精确编码、有效 batch 内稳定长度排序、按真实 padded tokens 拆分 microbatch；不 packing、不截断。
-- checkpoint 保存 optimizer、RNG、数据游标与文件指纹，验证图文、8K 输入和重载后更新。
+## BFCL 评估
 
-训练采用监督式软标签交叉熵，没有强化学习阶段。上述工程优化未逐项做准确率消融，不能分别归因 BFCL 的总分提升。
+评估采用 **Decision Index 0.2.1 的 BFCL 工具名选择投影**，共 1,694 题、4,768 个判断字段。一题中全部候选工具判断正确才得分，两模型均完成全部请求。
 
-## 复现材料
+| 指标 | 官方 Qwen3.5-0.8B | dev-1.0 |
+| --- | ---: | ---: |
+| 整题准确率 | 39.37% | **77.39%** |
+| 多候选工具子集准确率 | 0.96% | **65.28%** |
+| 预测调用精确率 | 36.14% | **77.97%** |
+| 不必要工具选择率，越低越好 | 97.30% | **15.06%** |
+| 必要工具召回率 | **99.94%** | 96.75% |
 
-发布保留训练器、运行时依赖源码、Docker 环境定义、数据准备与校验脚本、冻结训练配置，以及本次对照所需的推理与计分代码。Base 权重由官方仓库按固定 revision 单独下载；训练数据以 `dev-data-1.0` 中的许可分发范围和重建配方为准。
+本结果衡量工具名选择，不包含参数生成、调用顺序和执行。对照使用官方后训练版 Qwen3.5-0.8B；dev-1.0 从 Base 训练，使用专用决策头和训练模板，因此分差包含模型起点与推理接口差异。单工具子集 `simple` 和 `live_simple` 的准确率分别为 99.75% 和 91.47%，低于对照的 100%；完整条件与逐子集数据见[评估报告](docs/bfcl-report.md)。
 
-| 材料 | 作用 |
-| --- | --- |
-| `training/qwen35-0.8b/qwen35_qlora.py` | QLoRA 决策模型、监督训练、校准、保存和恢复 |
-| `training/qwen35-0.8b/exact_batch.py` | 精确编码及 microbatch 组织 |
-| `training/qwen35-0.8b/runtime-source/` | 固定版本上游 Decider 运行时代码及兼容补丁 |
-| `training/qwen35-0.8b/Dockerfile` | 固定版本 GPU 环境 |
-| `training/qwen35-0.8b/prepare_data.py` | Base processor 编码、长度与隔离核验 |
-| `configs/training-first-run.json` | 发布 checkpoint 对应的脱敏冻结训练配置 |
-| `provenance/` | 实际依赖环境、推理所需文件身份和冻结源码 SHA256 |
-| `tools/predict.py` | 自定义 checkpoint 文件验证与推理入口 |
-| `docs/bfcl-report.md` | BFCL 计分定义、混淆矩阵和对照边界 |
-| `docs/bfcl-summary.json` | 精确指标及来源指纹 |
-| `docs/training-process.md` | 训练阶段、11 次开发评估、校准与功耗记录 |
+## 使用方式
 
-`prepare_data.py` 和 `verify_prepared_data.py` 保留历史数据准备与审计逻辑；它们依赖原始候选、holdout、Tasksource parquet、上游 prompt source 和原审计元数据。仅 `git clone` 本仓库不能直接执行这条历史重建链。下面的训练主路径使用数据仓库提供的最终 JSONL，或按上游条款取得受限记录后精确恢复的完整 JSONL。
+输入由状态、问题和显式候选组成，输出为结构化答案。例如，用户询问加法而候选工具是天气查询时，发布模型的玩具样例输出如下：
 
-## 加载发布模型
-
-先取得固定 revision 的 `Qwen/Qwen3.5-0.8B-Base`、ModelScope 上的 `dev-1.0` 文件，以及本仓库依赖环境。发布物是 adapter、readout 和 processor，不是标准聊天模型的整套生成权重。可在允许联网的下载环境执行：
-
-```bash
-python scripts/download_qwen35_base.py \
-  --local-dir /path/to/Qwen3.5-0.8B-Base
+```json
+{
+  "type": "choice",
+  "choice": "no",
+  "probabilities": {
+    "yes": 0.004156,
+    "no": 0.995844
+  }
+}
 ```
 
-下载器固定 Base revision 并生成原训练器要求的 `download-verification-manifest.json`。遇到代理大文件限制时可增加 `--range-download-large`。加载器校验全部 12 个 Base 文件，不能换成官方后训练版、其他 revision 或缺少元数据的快照。随后在仓库根目录执行：
+这是随仓库提供的单条示例输出，数值按显示精度四舍五入。自定义候选及完整输入见 [`examples/decision.json`](https://github.com/llzx177067-rgb/dev-1.0/blob/main/examples/decision.json)。
+
+下载模型、固定版本的 `Qwen/Qwen3.5-0.8B-Base` 并安装配套环境后，在源码仓库运行：
 
 ```bash
 python tools/predict.py \
@@ -57,54 +55,20 @@ python tools/predict.py \
   --output result.json
 ```
 
-输入是 UTF-8 JSON，支持单条决策记录或其数组，包含 `state` 和 `question`；输出 envelope 的 `predictions` 是 Answer 列表，包含候选概率与选中答案。推理需要 CUDA，使用 `CUDA_VISIBLE_DEVICES` 选择设备。加载器保留模型保存的温度，只应用一次；`--verify-only` 只做 CPU 文件与配置校验，不执行推理。
+发布格式为 **QLoRA adapter + 决策头 + processor**，需使用仓库的自定义加载器和固定 Base；输出用于候选决策，工具参数生成与执行交由 Agent 完成。加载器会恢复保存的温度并应用一次。
 
-也可在 Python 中调用 `from tools.predict import load_decider, predict_rows`，通过 `load_decider(model_dir, base_model_path)` 加载，再用 `predict_rows(model, rows, batch_size=1)` 获取 Answer 列表。
+## 框架与训练
 
-## 复现监督训练
+模型采用专用 255 路决策 readout，在 Qwen3.5 的 6 层 full attention 中开放非因果上下文，保留 18 层 GatedDeltaNet 的原始递推行为。NF4 QLoRA 与独立 FP32 readout 共更新 **5,672,448 个参数**，在 626,546 条公开来源重建记录上完成 1 epoch、2,448 次优化更新。
 
-先按数据仓库的分发文件与获取配方恢复数据，并核对完整训练集 SHA256：`2c3a16403c75ef3df2d936048a38c686e22dd0520871a33a94946494bac8c20d`。直接分发的训练原文为 601,579 条，其他 24,967 条提供 ID、指纹与获取配方；完整实际训练量是 626,546 条。仅使用可直接下载子集重新训练时，应以新的数据身份报告结果。
+训练使用软标签监督、候选置换和独立温度校准。工程实现包括精确长度分批、padded token 预算、保存恢复与数值核验；单张 H200 NVL 在 GPU 280W 上限下完成，含评估约 7 小时 7 分钟。专用决策接口及相关训练方法继承 [pplx-decider](https://huggingface.co/perplexity-ai/pplx-decider-v1.1-27b) 的公开实现，本项目完成 0.8B 混合骨干与 QLoRA 适配。
 
-冻结环境中，从仓库根目录运行：
+## 文档与开放资源
 
-```bash
-export PYTHONPATH="$PWD/training/qwen35-0.8b/runtime-source/src"
-python training/qwen35-0.8b/qwen35_qlora.py \
-  --model-path /models/qwen35-0.8b-base \
-  --output runs/dev-1.0-reproduction \
-  --train data/qwen35-final/train.jsonl \
-  --development data/qwen35-final/dev.jsonl \
-  --temperature data/qwen35-final/temperature.jsonl \
-  --attention-mode noncausal_full_attention \
-  --rank 8 --lora-targets all-linear \
-  --batch-size 32 --effective-batch-size 256 \
-  --max-length 8192 --token-budget 32768 \
-  --lr 1e-4 --adam-eps 1e-6 --warmup-ratio 0.05 \
-  --epochs 1 --eval-every 250 --save-every 10 \
-  --cpu-threads 4 --seed 20261012 --deterministic --length-bucket
-```
+- [训练过程与开发集曲线](docs/training-process.md)
+- [加载、环境与训练复现](docs/reproduction.md)
+- [BFCL 详细评估](docs/bfcl-report.md)
+- [已发表预测的 CPU 复算](https://github.com/llzx177067-rgb/dev-1.0/tree/main/evaluation)
+- [dev-data-1.0 数据与获取配方](https://modelscope.cn/datasets/lzx1770670957/dev-data-1.0)
 
-上例假设 GPU 功耗限制已按部署环境设置，训练器不会自行修改硬件功耗。发布训练使用硬件 280W 上限和独立监控；在其他设备上应保留相同数据及算法设置，并重新验证容量和数值行为。
-
-实际运行使用 Python 3.12、PyTorch 2.14.0/CUDA 13.0、Transformers 5.17.0、PEFT 0.21.2、bitsandbytes 0.50.2、tokenizers 0.23.2 和 flash-linear-attention 0.5.2。Dockerfile 固定依赖；其他版本需重新验证 Qwen3.5 量化、DeltaNet、注意力与恢复路径。
-
-训练设置为 effective batch 256、microbatch 上限 32、padded token budget 32,768、max length 8,192、LR `1e-4`、5% warmup + cosine、AdamW epsilon `1e-6`、weight decay `0.01`、gradient clip norm `1.0`、seed 20261012、1 epoch。单张 H200 NVL 在 GPU 280W 上限下完成，含初始及定期评估约 7 小时 7 分钟；性能与耗时会随硬件和长度分布改变。
-
-复现时先核验固定 Base、数据、源码和镜像身份，再执行 CPU 检查、图文 GPU 冒烟和容量验证，最后启动训练。开发集和温度集独立于梯度更新；BFCL 测试集不参与校准、选模或规则调整。恢复须使用同一 run 最近完整 checkpoint，不应更改冻结参数后声称是相同训练轨迹。
-
-训练起点的未更新 adapter 与初始化 readout 在原开发集上的准确率为 37.34%，训练完成后为 85.91%；校准 ECE 从 18.48% 降至 1.65%。这是 1,497 条原开发集上的监测指标，不是 BFCL 分数，也不是官方后训练版 Qwen 的成绩；[训练过程与曲线](docs/training-process.md)列出全部 11 个评估点及功耗边界。
-
-## 评估结果
-
-| 模型 | 整题准确率 | 必要工具召回率 | 不必要工具选择率 |
-| --- | ---: | ---: | ---: |
-| 官方 Qwen3.5-0.8B | 39.37% | 99.94% | 97.30% |
-| **dev-1.0** | **77.39%** | 96.75% | **15.06%** |
-
-两者使用同一 1,694 题、4,768 个判断字段，全部完成、无跳过。一题中所有候选工具的 yes/no 判断均正确才得分。原版保留完整 LM head 和因果注意力，dev-1.0 使用决策头与内部提示；原版是官方后训练模型，dev-1.0 则从 Base 训练。这是接口级实测对照，不是严格控制变量的微调消融，也不是完整 BFCL 榜单复现。
-
-提升主要来自多候选子集：`live_multiple` 准确率从 0.96% 升至 65.28%。`simple` 从 100.00% 降至 99.75%，`live_simple` 从 100.00% 降至 91.47%；必要工具召回也略有下降，详见完整报告。
-
-## 模型与数据许可
-
-发布代码与模型遵守随仓库保留的 Apache 2.0 声明及上游归属信息。实际训练数据具有多来源混合条款，包含非商业研究及其他限制；模型或源码许可不扩张数据使用权，也不提供无条件商用授权。下载、重建和使用前应阅读 `dev-data-1.0` 的逐来源清单。
+代码、模型文件及上游归属声明随发布保留。数据按各自来源条款提供：公开训练原文 601,579 条，其余 24,967 条提供身份、指纹与获取配方；完整实际训练身份为 626,546 条。模型及源码的 Apache 2.0 声明不扩张数据使用权，使用前请阅读数据仓库的逐来源许可。
